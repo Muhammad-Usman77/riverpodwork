@@ -35,11 +35,11 @@ class MultiStateProvider extends ConsumerWidget {
           ,
           Consumer(builder: (context, ref, child) {
             print('build-container-slider');
-            final slider = ref.watch(sliderProvider);
+            final slider = ref.watch(sliderProvider.select((state) => state.slider));
             return Container(
               height: 150,
               width: 150,
-              color: Colors.red.withOpacity(slider.slider),
+              color: Colors.red.withOpacity(slider),
             );
           }),
           Consumer(builder: (context, ref, child) {
