@@ -24,7 +24,7 @@ class MultiStateProvider extends ConsumerWidget {
                 stateProvider.state =
                     stateProvider.state.copyWith(passWord: !slider);
               },
-              child: Container(
+              child: SizedBox(
                 height: 150,
                 width: 150,
                 child: slider ? Icon(Icons.remove_red_eye) : Icon(Icons.image),
