@@ -15,25 +15,54 @@ final usersDataProvider = FutureProvider<List<dynamic>>((ref) async {
 
 class ApiService {
   Future<List<dynamic>> getApiUsers() async {
-    var url = 'https://crudcrud.com/api/d3cebc709c634288a2a217fde83c0a5a/unicorn';
+    var url =
+        'https://crudcrud.com/api/d3cebc709c634288a2a217fde83c0a5a/unicorn';
     var uri = Uri.parse(url);
     var response = await http.get(uri);
     var responsebody = jsonDecode(response.body);
     return responsebody;
   }
 
-  // Add this to your ApiService class
-Future<void> postUserData(Map<String, dynamic> userData) async {
-  var url = 'https://crudcrud.com/api/d3cebc709c634288a2a217fde83c0a5a/unicorn';
-  var uri = Uri.parse(url);
-  var response = await http.post(
-    uri,
-    headers: {'Content-Type': 'application/json'},
-    body: jsonEncode(userData),
-  );
-  
-  if (response.statusCode != 201) {
-    throw Exception('Failed to post data');
+  // this function is used for the post data on server
+  Future<void> postUserData(Map<String, dynamic> userData) async {
+    var url =
+        'https://crudcrud.com/api/d3cebc709c634288a2a217fde83c0a5a/unicorn';
+    var uri = Uri.parse(url);
+    var response = await http.post(
+      uri,
+      headers: {'Content-Type': 'application/json'},
+      body: jsonEncode(userData),
+    );
+
+    if (response.statusCode != 201) {
+      throw Exception('Failed to post data');
+    }
   }
-}
+
+// this fuction used for the delete post by id
+  Future<void> deleteDataByIde(String id) async {
+    var url =
+        'https://crudcrud.com/api/d3cebc709c634288a2a217fde83c0a5a/unicorn/$id';
+    var uri = Uri.parse(url);
+    var response = await http.delete(uri);
+    if (response.statusCode != 201) {
+      throw Exception('Failed to post data');
+    }
+  }
+
+  // this function is used for the update data on server
+  Future<void> putUserData(Map<String, dynamic> userData, String id) async {
+    var url =
+        'https://crudcrud.com/api/d3cebc709c634288a2a217fde83c0a5a/unicorn/$id';
+    var uri = Uri.parse(url);
+    var response = await http.put(
+      uri,
+      headers: {'Content-Type': 'application/json'},
+      body: jsonEncode(userData),
+    );
+
+    if (response.statusCode != 201) {
+      throw Exception('Failed to post data');
+    }
+  }
 }

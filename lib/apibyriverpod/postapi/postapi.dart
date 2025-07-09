@@ -12,8 +12,8 @@ class PostApiScreen extends ConsumerStatefulWidget {
 }
 
 class _PostApiScreenState extends ConsumerState<PostApiScreen> {
-  TextEditingController _nameController = TextEditingController();
-  TextEditingController _titleController = TextEditingController();
+  final TextEditingController _nameController = TextEditingController();
+  final TextEditingController _titleController = TextEditingController();
 
   Future<void> _submitForm() async {
     try {
