@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:riverstate/familyprovider/family_screen.dart';
-import 'package:riverstate/practicevista.dart/screens/simpleprovider.dart';
+import 'package:riverstate/apibyriverpod/getapi/getapi.dart';
+import 'package:riverstate/apibyriverpod/postapi/postapi.dart';
 
 void main() {
   runApp(const MyApp());
@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
           useMaterial3: true,
         ),
-        home: SimpleProiderScreen(),
+        home: GetApiScreen(),
       ),
     );
   }
